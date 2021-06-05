@@ -9,10 +9,13 @@ import java.util.Date;
 public class Usuarios {
 
     @Id
+    @Column(nullable = false, unique = true)
     private String nombre;
 
+    @Column(nullable = false, length = 80)
     private int edad;
 
+    @Column(nullable = false)
     private Date fecha_ingreso_compañia;
 
     @ManyToOne

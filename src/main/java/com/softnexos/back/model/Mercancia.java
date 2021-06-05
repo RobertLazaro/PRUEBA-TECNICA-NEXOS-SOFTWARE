@@ -12,10 +12,13 @@ public class Mercancia {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_producto;
 
+    @Column(unique = true, nullable = false)
     private String nombre_producto;
 
+    @Column(nullable = false)
     private int cantidad;
 
+    @Column(nullable = false)
     private Date fecha_ingreso;
 
     @ManyToOne
