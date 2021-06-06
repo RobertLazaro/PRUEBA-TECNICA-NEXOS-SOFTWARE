@@ -22,6 +22,9 @@ public class Usuarios {
     @JoinColumn(name = "cargo_usuario")
     private Cargos cargo;
 
+    public Usuarios() {
+    }
+
     public Usuarios(String nombre, int edad, Date fecha_ingreso_compañia, Cargos cargo) {
         this.nombre = nombre;
         this.edad = edad;

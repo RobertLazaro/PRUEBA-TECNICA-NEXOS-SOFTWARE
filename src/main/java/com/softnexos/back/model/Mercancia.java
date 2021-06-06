@@ -10,7 +10,8 @@ public class Mercancia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id_producto;
+    @Column(nullable = false)
+    private Long id_producto;
 
     @Column(unique = true, nullable = false)
     private String nombre_producto;
@@ -25,6 +26,9 @@ public class Mercancia {
     @JoinColumn(name = "nombre_usuario")
     private Usuarios usuario_registro;
 
+    public Mercancia() {
+    }
+
     public Mercancia(String nombre_producto, int cantidad, Date fecha_ingreso, Usuarios usuario_registro) {
         this.nombre_producto = nombre_producto;
         this.cantidad = cantidad;
@@ -32,11 +36,11 @@ public class Mercancia {
         this.usuario_registro = usuario_registro;
     }
 
-    public int getId_producto() {
+    public Long getId_producto() {
         return id_producto;
     }
 
-    public void setId_producto(int id_producto) {
+    public void setId_producto(Long id_producto) {
         this.id_producto = id_producto;
     }
 

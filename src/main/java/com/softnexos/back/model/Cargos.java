@@ -9,10 +9,14 @@ public class Cargos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
     private int id;
 
     @Column(nullable = false, unique = true)
     private String cargo;
+
+    public Cargos() {
+    }
 
     public Cargos(String cargo) {
         this.cargo = cargo;

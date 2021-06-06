@@ -1,12 +1,17 @@
 package com.softnexos.back.service;
 
-import com.softnexos.back.repository.MercanciaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
-public class MercanciaService {
+import com.softnexos.back.model.Mercancia;
 
-    @Autowired
-    private MercanciaRepository mercanciaRepository;
+import java.util.List;
+
+public interface MercanciaService {
+
+    public List<Mercancia> findAll();
+
+    public List<Mercancia> findAllByNombre(String nombre_producto);
+
+    public Mercancia save(Mercancia mercancia);
+
+    public void deleteById(Long id_producto);
 }

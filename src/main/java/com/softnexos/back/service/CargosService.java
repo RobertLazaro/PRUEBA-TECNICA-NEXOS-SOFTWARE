@@ -1,12 +1,14 @@
 package com.softnexos.back.service;
 
-import com.softnexos.back.repository.CargosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.softnexos.back.model.Cargos;
 
-@Service
-public class CargosService {
+import java.util.List;
+import java.util.Optional;
 
-    @Autowired
-    private CargosRepository cargosRepository;
+public interface CargosService{
+
+    public List<Cargos> findAll();
+
+    public Optional<Cargos> findById(int id);
+
 }

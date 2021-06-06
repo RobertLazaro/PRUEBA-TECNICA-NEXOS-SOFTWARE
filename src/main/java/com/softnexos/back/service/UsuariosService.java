@@ -1,12 +1,15 @@
 package com.softnexos.back.service;
 
-import com.softnexos.back.repository.UsuariosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.softnexos.back.model.Usuarios;
 
-@Service
-public class UsuariosService {
+import java.util.List;
+import java.util.Optional;
 
-    @Autowired
-    private UsuariosRepository usuariosRepository;
+public interface UsuariosService {
+
+    public List<Usuarios> findAll();
+
+    public Optional<Usuarios> findByNombre(String nombre);
+
+
 }
