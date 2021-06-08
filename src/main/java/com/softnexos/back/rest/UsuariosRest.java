@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/usuarios/")
 public class UsuariosRest {
 
     @Autowired
@@ -25,7 +25,7 @@ public class UsuariosRest {
         return ResponseEntity.ok(usuariosService.findAll());
     }
 
-    @GetMapping("/{nombre}")
+    @GetMapping("{nombre}")
     public ResponseEntity<?> read(@PathVariable String nombre) {
         Optional<Usuarios> oUsuarios = usuariosService.findByNombre(nombre);
 

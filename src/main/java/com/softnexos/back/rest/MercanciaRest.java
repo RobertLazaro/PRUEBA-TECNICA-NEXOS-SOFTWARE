@@ -1,14 +1,17 @@
 package com.softnexos.back.rest;
 
 import com.softnexos.back.model.Mercancia;
+import com.softnexos.back.model.Usuarios;
 import com.softnexos.back.service.MercanciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/mercancia/")
@@ -17,10 +20,12 @@ public class MercanciaRest {
     @Autowired
     private MercanciaService mercanciaService;
 
-    @GetMapping("{nombre_producto}")
-    public ResponseEntity<List<Mercancia>> getAllByNombre(@PathVariable("nombre_producto") String nombre_producto) {
-        return ResponseEntity.ok(mercanciaService.findAllByNombre(nombre_producto));
-    }
+    /*@GetMapping("{nombre_producto}")
+    public String buscarPorNombre_producto(@RequestParam String nombre_producto, Model model, @ModelAttribute("producto") Mercancia mercancia) {
+        model.addAttribute("productosNombre", mercanciaService.buscarPorNombre_producto(nombre_producto));
+        return ;
+    }*/
+
 
     @GetMapping
     public ResponseEntity<List<Mercancia>> getAllMercancia (){
@@ -36,6 +41,12 @@ public class MercanciaRest {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
+    }
+
+    @DeleteMapping(value = "delete/{id_producto}")
+    public ResponseEntity<Boolean> deleteMercancia (@PathVariable ("id_producto") Long id_producto){
+        mercanciaService.deleteById(id_producto);
+        return ResponseEntity.ok(!(mercanciaService.findById(id_producto)!=null));
     }
 
 

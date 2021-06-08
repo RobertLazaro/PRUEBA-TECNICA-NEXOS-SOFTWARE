@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/cargos")
+@RequestMapping("/cargos/")
 public class CargosRest {
 
     @Autowired
@@ -24,7 +24,7 @@ public class CargosRest {
         return ResponseEntity.ok(cargosService.findAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<?> read(@PathVariable Integer id) {
         Optional<Cargos> oCargos = cargosService.findById(id);
 

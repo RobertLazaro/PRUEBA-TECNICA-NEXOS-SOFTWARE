@@ -10,7 +10,6 @@ public class Mercancia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
     private Long id_producto;
 
     @Column(unique = true, nullable = false)
@@ -23,7 +22,7 @@ public class Mercancia {
     private Date fecha_ingreso;
 
     @ManyToOne
-    @JoinColumn(name = "nombre_usuario")
+    @JoinColumn(name = "usuario_registro")
     private Usuarios usuario_registro;
 
     public Mercancia() {
